@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Executar biblioteca",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/biblioteca.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\mingw64\\bin\\gdb.exe",
+            "preLaunchTask": "Compilar biblioteca (gcc)",
+            "externalConsole": true
+        }
+    ]
+}
