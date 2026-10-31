@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "usuarios.h"
+#include "include/usuarios.h"
 
 Usuario usuarios[100];
 int totalUsuarios = 0;
@@ -55,7 +55,7 @@ void cadUsuario(){
     printf("\n==================== CADASTRAR NOVO USUARIO ====================\n");
     
     //Verifica se o arquivo já existe 
-    FILE *arq = fopen("usuario.txt","r");
+    FILE *arq = fopen("data/usuario.txt","r");
     int novo;
     if(arq == NULL)
         novo = 1; //(Verdadeiro) arquivo não existe
@@ -64,7 +64,7 @@ void cadUsuario(){
     fclose(arq);
     
     //Reabre o arquivo em modo append: cria se não existir, ou modifica ao final
-    arq = fopen("usuario.txt", "a");
+    arq = fopen("data/usuario.txt", "a");
     if(arq == NULL){
         printf("Erro na ABERTURA do arquivo.\n");
         return;
@@ -112,7 +112,7 @@ void cadUsuario(){
 void listarUsuarios(){
     printf("====================== USUARIOS CADASTRADOS ======================\n");
     //Abre o arquivo para leitura e verifica se o arquivo existe
-    FILE *arq = fopen("usuario.txt", "r");
+    FILE *arq = fopen("data/usuario.txt", "r");
     if(arq == NULL){
         printf("Erro na ABERTURA do arquivo.\n");
         return;
@@ -137,7 +137,7 @@ void listarUsuarios(){
 void buscarUsuario(){
     printf("==================== BUSCAR USUARIO ====================\n");
     //Abre o arquivo para buscar informações de um usuário
-    FILE *arq = fopen("usuario.txt", "r");
+    FILE *arq = fopen("data/usuario.txt", "r");
     if(arq == NULL){ //Verifica se o arquivo existe
         printf("Erro na ABERTURA do arquivo.\n");
         return;
@@ -173,7 +173,7 @@ void buscarUsuario(){
 void livrosEmprestados(){
     printf("==================== EMPRESTIMOS ATIVOS DO USUARIO ====================\n");
     //Abre o arquivo para buscar informações de um determinado usuário
-    FILE *arq = fopen("usuario.txt", "r");
+    FILE *arq = fopen("data/usuario.txt", "r");
     if(arq == NULL){ //Verifica se o arquivo existe
         printf("Erro na ABERTURA do arquivo.\n");
         return;
@@ -233,7 +233,7 @@ void livrosEmprestados(){
 void atualizarDados(){
     printf("==================== ATUALIZAR DADOS DO USUARIO ====================\n");
     //Abre o arquivo para buscar informações de um determinado usuário
-    FILE *arq = fopen("usuario.txt", "r");
+    FILE *arq = fopen("data/usuario.txt", "r");
     if(arq == NULL){ //Verifica se o arquivo existe
         printf("Erro na ABERTURA do arquivo.\n");
         return;
@@ -285,9 +285,9 @@ void atualizarDados(){
     novoCurso[strcspn(novoCurso, "\n")] = '\0';
 
     //Reabre o arquivo para buscar informações do usuário
-    arq = fopen("usuario.txt", "r");
+    arq = fopen("data/usuario.txt", "r");
     //Abre o arquivo temporário para registrar informções do usuário
-    FILE *temp = fopen("temp.txt", "w");
+    FILE *temp = fopen("data/temp.txt", "w");
     //Verifica se os arquivos existem
     if(arq == NULL || temp == NULL){
         printf("Erro na ABERTURA do arquivo.\n");
@@ -321,7 +321,7 @@ void atualizarDados(){
 void removerUsuario(){
     printf("==================== REMOVER USUARIO ====================\n");
     //Abre o arquivo para buscar informações de um determinado usuário
-    FILE *arq = fopen("usuario.txt", "r");
+    FILE *arq = fopen("data/usuario.txt", "r");
     if(arq == NULL){ //Verifica se o arquivo exise
         printf("Erro na ABERTURA do arquivo.\n");
         return;
@@ -356,9 +356,9 @@ void removerUsuario(){
         return;
     }
     //Reabre para buscar informações do usuário
-    arq = fopen("usuario.txt", "r");
+    arq = fopen("data/usuario.txt", "r");
     //Abre o arquivo temporário para registrar informações do usuário
-    FILE *temp = fopen("temp.txt", "w");
+    FILE *temp = fopen("data/temp.txt", "w");
     //Verifica se os arquivos existem
     if(arq == NULL || temp == NULL){
         printf("Nenhum usuario cadastrado ainda.\n");
