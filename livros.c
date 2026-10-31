@@ -77,23 +77,48 @@ void menuLivros() {
 }
 
 void cadastrarLivro() {
+    printf("\n==================== CADASTRAR NOVO LIVRO ====================\n");
 
+    FILE *arq = fopen("livros.txt", "r");
+    int novo;    
+    if(arq == NULL)
+        novo = 1;
+    else
+        novo = 0;
+    fclose(arq);
+    
+    arq = fopen("livros.txt", "a+");
+    if(arq == NULL){
+        printf("Erro na ABERTURA do arquivo.\n");
+        return;
+    }
+
+    char linha[256];
+
+    if(novo != 0){
+        fprintf(arq, "%-10s | %-20s | %-30s | %-10s | %-20s | %-10s | %-10s | %-10s\n", "CODIGO", "TITULO", "AUTOR", "ANO", "GENERO", "TOTAL", "DISPONIVEL", "EMPRESTIMOS");
+        fprintf(arq, "%-10s | %-20s | %-30s | %-10s | %-20s | %-10s | %-10s | %-10s\n", "----------", "--------------------", "------------------------------", "----------", "--------------------", "----------", "----------", "----------");
+    }
+    
+    //Gera o código automaticamente para o novo livro
     livros[totalLivros].codigo = totalLivros + 1;
+
     //Isso guarda o titulo do livro
     printf("Digite o titulo: ");
-    fgets(livros[totalLivros].titulo, 100, stdin);
+    fgets(livros[totalLivros].titulo, sizeof(livros[totalLivros].titulo), stdin);
     //Isso tira o enter invisivel
     livros[totalLivros].titulo[strcspn(livros[totalLivros].titulo, "\n")] = '\0';
+
     //isso guarda o nome do autor
     printf("Digite o autor: ");
-    fgets(livros[totalLivros].autor, 100, stdin);
-
+    fgets(livros[totalLivros].autor, sizeof(livros[totalLivros].autor), stdin);
     livros[totalLivros].autor[strcspn(livros[totalLivros].autor, "\n")] = '\0';
+
     //Isso guarda o genero do livro
     printf("Digite o genero: ");
-    fgets(livros[totalLivros].genero, 50, stdin);
-
+    fgets(livros[totalLivros].genero, sizeof(livros[totalLivros].genero), stdin);
     livros[totalLivros].genero[strcspn(livros[totalLivros].genero, "\n")] = '\0';
+
     //Isso simplismente vai guardar o ano em que o livro foi feito
     printf("Digite o ano: ");
     scanf("%d", &livros[totalLivros].ano);
@@ -108,9 +133,21 @@ void cadastrarLivro() {
     //limpa o buffer
     //se não tiver isso proximos gets podem dar B.O
     getchar();
-    printf("----- Livro foi cadastrado -----");
+    fprintf(arq, "%-10d | %-20s | %-30s | %-10d | %-20s | %-10d | %-10d | %-10d\n", //Os valores aparecerão alinhados a esquerda
+        livros[totalLivros].codigo, 
+        livros[totalLivros].titulo, 
+        livros[totalLivros].autor, 
+        livros[totalLivros].ano, 
+        livros[totalLivros].genero, 
+        livros[totalLivros].qtd_total, 
+        livros[totalLivros].qtd_disponivel, 
+        livros[totalLivros].total_emprestimos);
+
+    //Quantidade de livros cresce a cada novo cadastro de livro
     totalLivros++;
 
+    printf("----- Livro foi cadastrado -----");
+    fclose(arq);
 }
 
 void listarLivros() {

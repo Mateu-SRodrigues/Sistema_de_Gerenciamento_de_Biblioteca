@@ -1,3 +1,0 @@
-MATRICULA  | NOME                           | CURSO                | EMPRESTIMOS ATIVOS
----------- | ------------------------------ | -------------------- | ----------
-2          | Maria                          | Med                  | 0         
