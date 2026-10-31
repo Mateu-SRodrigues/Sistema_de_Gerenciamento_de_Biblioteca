@@ -1,24 +1,28 @@
 {
+    "version": "2.0.0",
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: gcc.exe arquivo de build ativo",
-            "command": "C:\\mingw64\\bin\\gcc.exe",
+            "label": "Compilar biblioteca (gcc)",
+            "command": "gcc",
             "args": [
                 "-fdiagnostics-color=always",
+                "-Wall",
+                "-Wextra",
                 "-g",
-                "main.c",
-                "livros.c",
-                "usuarios.c",
-                "emprestimo.c",
-                "relatorios.c",
-                "menu.c",
-                "recuperar_e_salvar.c",
+                "-Iinclude",
+                "src/main.c",
+                "src/menu.c",
+                "src/livros.c",
+                "src/usuarios.c",
+                "src/emprestimos.c",
+                "src/relatorios.c",
+                "src/persistencia.c",
                 "-o",
-                "${workspaceFolder}\\main.exe"
+                "${workspaceFolder}/biblioteca.exe"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
                 "$gcc"
@@ -27,8 +31,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Tarefa gerada pelo Depurador."
+            "detail": "Compila todos os módulos de src/ usando os headers de include/."
         }
-    ],
-    "version": "2.0.0"
+    ]
 }
