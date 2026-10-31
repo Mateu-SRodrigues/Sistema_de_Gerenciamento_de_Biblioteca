@@ -2,8 +2,8 @@
 #include <string.h>
 #include <time.h>
 
-#include "include/emprestimos.h"
-#include "include/livros.h"
+#include "emprestimos.h"
+#include "livros.h"
 
 /* Vetor de empréstimos. */
 Emprestimo emprestimos[1000];

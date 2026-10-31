@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "include/persistencia.h"
-#include "include/livros.h"
+#include "persistencia.h"
+#include "livros.h"
 
 extern Livro livros[100];
 extern int totalLivros;

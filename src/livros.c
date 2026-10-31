@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-#include "include/livros.h"
-#include "include/emprestimos.h"
-#include "include/persistencia.h"
+#include "livros.h"
+#include "emprestimos.h"
+#include "persistencia.h"
 
 Livro livros[100];
 int totalLivros = 0;
@@ -92,8 +92,6 @@ void cadastrarLivro() {
         printf("Erro na ABERTURA do arquivo.\n");
         return;
     }
-
-    char linha[256];
 
     if(novo != 0){
         fprintf(arq, "%-10s | %-20s | %-30s | %-10s | %-20s | %-10s | %-10s | %-10s\n", "CODIGO", "TITULO", "AUTOR", "ANO", "GENERO", "TOTAL", "DISPONIVEL", "EMPRESTIMOS");

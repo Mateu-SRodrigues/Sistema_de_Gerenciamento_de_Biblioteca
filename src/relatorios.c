@@ -1,7 +1,7 @@
-#include "include/relatorios.h"
-#include "include/livros.h"
-#include "include/emprestimos.h"
-#include "include/usuarios.h"
+#include "relatorios.h"
+#include "livros.h"
+#include "emprestimos.h"
+#include "usuarios.h"
 #include <stdio.h>
 #include <string.h>
 

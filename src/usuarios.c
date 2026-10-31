@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "include/usuarios.h"
+#include "usuarios.h"
 
 Usuario usuarios[100];
 int totalUsuarios = 0;
@@ -69,8 +69,7 @@ void cadUsuario(){
         printf("Erro na ABERTURA do arquivo.\n");
         return;
     }
-    //Armazena cada linha lida do arquivo
-    char linha[256];
+    
     //Se arquivo não existir ou estiver vazio, cria/adiciona com um cabeçalho
     if(novo != 0){
         fprintf(arq, "%-10s | %-30s | %-20s | %-10s\n", "MATRICULA", "NOME", "CURSO", "EMPRESTIMOS ATIVOS" );

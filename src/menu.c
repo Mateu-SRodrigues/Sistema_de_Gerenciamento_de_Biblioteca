@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-#include "include/menu.h"
-#include "include/livros.h"
-#include "include/usuarios.h"
-#include "include/emprestimos.h"
-#include "include/relatorios.h"
-#include "include/persistencia.h"
+#include "menu.h"
+#include "livros.h"
+#include "usuarios.h"
+#include "emprestimos.h"
+#include "relatorios.h"
+#include "persistencia.h"
 
 extern Livro livros[100];
 extern int totalLivros;
