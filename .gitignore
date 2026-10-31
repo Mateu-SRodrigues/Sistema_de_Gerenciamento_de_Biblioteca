@@ -6,6 +6,7 @@
 *.ko
 *.obj
 *.elf
+build/
 
 # Linker output
 *.ilk
@@ -29,12 +30,20 @@
 *.dylib
 
 # Executables
+/biblioteca
 *.exe
 *.out
 *.app
 *.i*86
 *.x86_64
 *.hex
+
+# Dados e relatórios gerados em execução
+data/*
+!data/.gitkeep
+reports/*
+!reports/.gitkeep
+temp.txt
 
 # Debug files
 *.dSYM/
